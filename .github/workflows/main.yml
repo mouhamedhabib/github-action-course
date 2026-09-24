@@ -3,11 +3,11 @@ name : First Workflow
 on:
   push:
    branches: 
-     -main
+     - main
 jobs:
   example-job:
      runs-on: ubuntu-latest
 
      steps:
        - name: Print Welcome Messaage 
-         run : echo"welcome to our first git action workflow"
+         run: echo "Hello GitHub Actions"
