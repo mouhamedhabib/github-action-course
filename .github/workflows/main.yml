@@ -11,3 +11,9 @@ jobs:
      steps:
        - name: Print Welcome Messaage 
          run: echo "Hello GitHub Actions"
+       - name: Checkout 
+         uses: actions/checkout@v7
+
+       - name: list repository
+         run: ls -la 
+         
