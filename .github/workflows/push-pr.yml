@@ -1,0 +1,48 @@
+on:
+  push:
+    branches:
+      - main
+      - "release/**"
+    paths:
+      - "src/**"
+      - "docs/**"
+      - "*.md" # its mean every file that is in root folder with .md extension will trigger the workflow
+  pull_request:
+    branches:
+      - main
+      - "release/**"
+    paths:
+      - "src/**"
+      - "docs/**"
+      - "*.md"
+jobs: # use jobs to define a set of steps that will be executed in the workflow
+  test:
+    runs-on: ubuntu-latest
+    steps: # use steps to define a set of actions that will be executed in the job
+      - name: Checkout code
+        uses: actions/checkout@v7 # use actions/checkout@v7 to checkout the code from the repository
+      - name: Run tests
+        run: npm test # run the tests using npm test command
+
+
+# on
+# │
+# ├── push
+# │    ├── branches
+# │    │    ├── main
+# │    │    └── release/**
+# │    │
+# │    └── paths
+# │         ├── src/**
+# │         ├── docs/**
+# │         └── *.md
+# │
+# └── pull_request
+#      ├── branches
+#      │    ├── main
+#      │    └── release/**
+#      │
+#      └── paths
+#           ├── src/**
+#           ├── docs/**
+#           └── *.md
